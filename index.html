@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Hiba GRAPHICS </title>
+    
+
+  </head>
+    
+  <body>
+  <!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f9ff" />
+  <title>HIBA GRAPHICS — طباعة وإشهار</title>
+
+  <style>
+    :root{ color-scheme: light; }
+    *{ box-sizing: border-box; }
+    html, body{ margin:0; padding:0; }
+    body{
+      overflow-x:hidden;
+      background:#fff;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+    }
+
+    /* ===== Root (Mobile-first / LIGHT default) ===== */
+    #hibaUltra{
+      --bg:#f7f9ff; --bg2:#eef5ff;
+      --card: rgba(255,255,255,.94); --card2: rgba(255,255,255,.72);
+      --stroke: rgba(15,23,42,.10); --stroke2: rgba(15,23,42,.18);
+      --txt:#0f172a; --muted: rgba(15,23,42,.70);
+      --shadow1: 0 12px 28px rgba(15,23,42,.10);
+      --shadow2: 0 26px 70px rgba(15,23,42,.14);
+      --r-lg: 18px; --r-xl: 26px;
+      --blue:#2563eb; --green:#22c55e;
+      --focus: 0 0 0 3px rgba(37,99,235,.18), 0 0 0 1px rgba(37,99,235,.28);
+
+      color: var(--txt);
+      background:
+        radial-gradient(1000px 520px at 10% 5%, rgba(37,99,235,.10), transparent 60%),
+        radial-gradient(900px 520px at 90% 20%, rgba(34,197,94,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      border: 1px solid var(--stroke);
+      border-radius: var(--r-xl);
+      box-shadow: var(--shadow2);
+      max-width: 980px;
+      margin: 14px auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #hibaUltra.is-dark{
+      color-scheme: dark;
+      --bg:#0b1220; --bg2:#070b12;
+      --card: rgba(255,255,255,.06); --card2: rgba(255,255,255,.04);
+      --stroke: rgba(255,255,255,.12); --stroke2: rgba(255,255,255,.18);
+      --txt:#eaf0ff; --muted: rgba(234,240,255,.72);
+      --shadow1: 0 14px 32px rgba(0,0,0,.35);
+      --shadow2: 0 30px 90px rgba(0,0,0,.55);
+
+      background:
+        radial-gradient(1100px 700px at 10% 10%, rgba(37,99,235,.18), transparent 60%),
+        radial-gradient(900px 650px at 85% 20%, rgba(34,197,94,.16), transparent 62%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+
+    #hibaUltra a{ color: inherit; text-decoration: none; }
+    #hibaUltra img{ max-width:100%; display:block; }
+    .hu-container{ width: min(1120px, 92%); margin: 0 auto; }
+
+    /* ===== Icons ===== */
+    .hu-ico{ display:inline-flex; align-items:center; justify-content:center; }
+    .hu-ico img{
+      width:18px; height:18px; border-radius:999px; object-fit:cover;
+      box-shadow: 0 10px 22px rgba(0,0,0,.12);
+    }
+    .hu-ico--btn img{ width:18px; height:18px; }
+
+    .hu-iconCircle{
+      width:44px; height:44px; border-radius:999px;
+      border:1px solid var(--stroke);
+      background: var(--card);
+      box-shadow: var(--shadow1);
+      display:flex; align-items:center; justify-content:center;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
+    }
+    .hu-iconCircle:hover{
+      transform: translateY(-2px) scale(1.02);
+      border-color: var(--stroke2);
+      box-shadow: var(--shadow2);
+      filter: saturate(1.05);
+    }
+    .hu-iconCircle img{ width:26px; height:26px; border-radius:999px; object-fit:cover; }
+    .hu-iconCircle--big{ width:56px; height:56px; }
+    .hu-iconCircle--big img{ width:32px; height:32px; }
+
+    /* ===== Topbar ===== */
+    .hu-topbar{
+      border-bottom: 1px solid var(--stroke);
+      background: var(--card2);
+      backdrop-filter: blur(10px);
+    }
+    .hu-topbar__inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; padding:10px 0; flex-wrap:wrap;
+    }
+    .hu-topbar__left{
+      display:flex; align-items:center; gap:10px;
+      color: var(--muted); font-weight:900; font-size:13px;
+    }
+    .hu-dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      box-shadow: 0 0 0 5px rgba(37,99,235,.12);
+    }
+    .hu-topbar__right{ display:flex; gap:10px; align-items:center; }
+
+    .hu-chip{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--stroke); background: var(--card);
+      font-weight:1000; font-size:13px; box-shadow: var(--shadow1);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .hu-chip:hover{ transform: translateY(-1px); border-color: var(--stroke2); box-shadow: var(--shadow2); }
+    .hu-chip--primary{
+      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(34,197,94,.90));
+      color:#06110b; border-color: rgba(255,255,255,.22);
+    }
+
+    .hu-themeBtn{
+      border:1px solid var(--stroke);
+      background: var(--card);
+      border-radius: 999px;
+      padding: 10px 12px;
+      display:inline-flex; gap:8px; align-items:center;
+      cursor:pointer; box-shadow: var(--shadow1);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hu-themeBtn:hover{ transform: translateY(-1px); border-color: var(--stroke2); box-shadow: var(--shadow2); }
+
+    /* ===== Header (Mobile-first) ===== */
+    .hu-header{
+      position: sticky; top:0; z-index:60;
+      background: rgba(255,255,255,.70);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--stroke);
+    }
+    #hibaUltra.is-dark .hu-header{ background: rgba(5,7,12,.72); }
+
+    .hu-header__inner{
+      display:flex; flex-direction:column; align-items:stretch;
+      gap:10px; padding:12px 0;
+    }
+
+    .hu-brand{ display:flex; gap:12px; align-items:center; justify-content:space-between; }
+    .hu-brand__logo{
+      width:52px; height:52px; border-radius:18px; overflow:hidden;
+      border:1px solid var(--stroke); background: var(--card);
+      box-shadow: var(--shadow1); flex: 0 0 auto;
+    }
+    .hu-brand__logo img{ width:100%; height:100%; object-fit:cover; }
+    .hu-brand__meta{ min-width:0; flex:1; }
+    .hu-brand__nameRow{ display:flex; align-items:center; gap:10px; min-width:0; }
+    .hu-brand__name{
+      font-weight:1000; font-size:16px;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .hu-since{
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--stroke); background: var(--card2);
+      font-weight:1000; font-size:12px; flex: 0 0 auto;
+    }
+    .hu-brand__tag{
+      color: var(--muted); font-size:12px; margin-top:2px;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+
+    .hu-nav{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-start; }
+    .hu-nav__link{
+      flex:1 1 auto; text-align:center;
+      padding:10px 10px; border-radius:999px;
+      background: var(--card2); color: var(--muted);
+      font-weight:900; font-size:12px; border:1px solid transparent;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease, box-shadow .16s ease;
+    }
+    .hu-nav__link:hover{
+      transform: translateY(-1px);
+      background: var(--card);
+      border-color: var(--stroke);
+      color: var(--txt);
+      box-shadow: var(--shadow1);
+    }
+
+    .hu-header__actions{
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:space-between;
+    }
+
+    .hu-btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:16px;
+      border:1px solid var(--stroke); background: var(--card);
+      color: var(--txt); font-weight:1000; font-size:13px;
+      cursor:pointer; user-select:none; box-shadow: var(--shadow1);
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, filter .16s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hu-header__actions .hu-btn{ flex: 1 1 30%; padding: 10px 10px; font-size: 12px; }
+    .hu-btn:hover{ transform: translateY(-2px); border-color: var(--stroke2); box-shadow: var(--shadow2); filter:saturate(1.02); }
+    .hu-btn:focus-visible{ outline:none; box-shadow: var(--focus); }
+    .hu-btn--primary{
+      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(34,197,94,.90));
+      color:#06110b; border-color: rgba(255,255,255,.22);
+    }
+    .hu-btn--ghost{ background: transparent; border-color: var(--stroke2); }
+    .hu-btn--xl{ padding:14px 16px; border-radius:18px; font-size:14px; width:100%; }
+    .hu-btn--sm{ padding:10px 12px; border-radius:14px; font-size:13px; }
+    .hu-card{
+      border:1px solid var(--stroke);
+      background: var(--card);
+      border-radius: var(--r-xl);
+      box-shadow: var(--shadow1);
+    }
+
+    /* ===== Hero ===== */
+    .hu-hero{ padding:16px 0; }
+    .hu-hero__inner{ display:grid; grid-template-columns:1fr; gap:12px; }
+    .hu-card--hero{
+      padding:16px;
+      background:
+        radial-gradient(800px 380px at 25% 15%, rgba(37,99,235,.10), transparent 60%),
+        radial-gradient(800px 380px at 75% 85%, rgba(34,197,94,.08), transparent 62%),
+        var(--card);
+    }
+    .hu-title{ margin:0; font-size:30px; line-height:1.18; letter-spacing:-0.2px; }
+    .hu-grad{
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .hu-subtitle{ margin:12px 0 16px; color: var(--muted); font-size:14px; line-height:1.95; }
+    .hu-ctaRow{ display:flex; flex-direction:column; gap:10px; }
+    .hu-miniSocial{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; }
+
+    .hu-showLogo{
+      border-radius: var(--r-xl);
+      border:1px solid var(--stroke);
+      overflow:hidden;
+      background: var(--card2);
+      box-shadow: var(--shadow2);
+    }
+    .hu-showLogo img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      transform: scale(1.01);
+      transition: transform .55s cubic-bezier(.2,.9,.2,1), filter .35s ease;
+      filter: saturate(1.02) contrast(1.02);
+    }
+    .hu-card--showcase:hover .hu-showLogo img{
+      transform: scale(1.05);
+      filter: saturate(1.08) contrast(1.05);
+    }
+
+    .hu-note{
+      margin-top:12px; padding:10px 12px;
+      border-radius: var(--r-lg);
+      border:1px dashed var(--stroke2);
+      background: var(--card2);
+      color: var(--muted);
+      font-size:12px;
+    }
+
+    .hu-heroLinks{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .hu-pill{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background: var(--card2);
+      font-weight:1000; font-size:13px;
+      display:inline-flex; align-items:center; gap:10px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
+    }
+    .hu-pill:hover{ transform: translateY(-2px); border-color: var(--stroke2); box-shadow: var(--shadow1); filter:saturate(1.05); }
+
+    /* ===== Divider ===== */
+    .hu-divider{ padding:6px 0 14px; }
+    .hu-dividerCard{
+      position:relative; overflow:hidden;
+      border-radius: var(--r-xl);
+      border:1px solid var(--stroke);
+      background: var(--card);
+      padding:14px;
+      box-shadow: var(--shadow1);
+    }
+    .hu-dividerGlow{
+      position:absolute; inset:-40px;
+      background:
+        radial-gradient(480px 240px at 20% 20%, rgba(37,99,235,.18), transparent 60%),
+        radial-gradient(480px 240px at 80% 70%, rgba(34,197,94,.14), transparent 62%);
+      pointer-events:none;
+      transform: rotate(-6deg);
+    }
+    .hu-dividerText{ position:relative; color: var(--muted); font-weight:900; font-size:13px; line-height:1.85; }
+
+    /* ===== Sections ===== */
+    .hu-section{ padding:18px 0; }
+    .hu-section--alt{
+      background: rgba(0,0,0,.02);
+      border-top: 1px solid rgba(0,0,0,.03);
+      border-bottom: 1px solid rgba(0,0,0,.03);
+    }
+    #hibaUltra.is-dark .hu-section--alt{
+      background: rgba(255,255,255,.02);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .hu-head{ margin-bottom:12px; }
+    .hu-h2{ margin:0; font-size:22px; }
+    .hu-p{ margin:8px 0 0; color: var(--muted); font-size:13px; line-height:1.8; }
+
+    /* ===== Services (Mobile-first) ===== */
+    .hu-servicesGrid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    .hu-service{
+      border-radius: var(--r-xl);
+      border:1px solid var(--stroke);
+      background: var(--card);
+      overflow:hidden;
+      box-shadow: var(--shadow1);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
+    }
+    .hu-service:hover{ transform: translateY(-3px); border-color: var(--stroke2); box-shadow: var(--shadow2); filter:saturate(1.02); }
+
+    .hu-service__btn{
+      width:100%;
+      padding:14px;
+      border:none;
+      background: transparent;
+      color:inherit;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      text-align:right;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hu-service__btn:focus-visible{ outline:none; box-shadow: var(--focus); border-radius: var(--r-xl); }
+
+    .hu-service__icon{
+      width:44px; height:44px;
+      border-radius:16px;
+      display:flex; align-items:center; justify-content:center;
+      border:1px solid var(--stroke);
+      background: var(--card2);
+      box-shadow: var(--shadow1);
+      font-size:18px;
+      flex:0 0 auto;
+    }
+    .hu-service__txt{ flex:1 1 auto; min-width:0; }
+    .hu-service__t{ font-weight:1000; font-size:15px; }
+    .hu-service__d{
+      margin-top:4px;
+      color: var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .hu-service__chev{
+      width:36px; height:36px;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background: var(--card2);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:1000;
+      transition: transform .28s cubic-bezier(.2,.9,.2,1);
+      flex:0 0 auto;
+    }
+    .hu-service.is-open .hu-service__chev{ transform: rotate(180deg); }
+
+    .hu-panel{
+      border-top: 1px solid var(--stroke);
+      background: var(--card2);
+      padding: 0 14px;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-10px);
+      overflow: hidden;
+      transition:
+        max-height .62s cubic-bezier(.2,.9,.2,1),
+        opacity .35s ease,
+        transform .42s ease,
+        padding .35s ease;
+    }
+    .hu-service.is-open .hu-panel{
+      padding: 14px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hu-panel__top{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap; margin-bottom:12px;
+    }
+    .hu-panel__title{ font-weight:1000; font-size:13px; }
+    .hu-panel__desc{ color: var(--muted); font-size:12px; margin-top:2px; }
+
+    .hu-gallery__grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:10px;
+    }
+    .hu-thumb{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--stroke);
+      background: var(--card);
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow1);
+    }
+    .hu-thumb img{
+      width:100%; height:100%;
+      object-fit: cover;
+      transform: scale(1.01);
+      transition: transform .28s ease, filter .28s ease;
+      pointer-events:none;
+      user-select:none;
+      -webkit-user-drag:none;
+      filter: saturate(1.02) contrast(1.02);
+    }
+    .hu-service:hover .hu-thumb img{ transform: scale(1.04); filter: saturate(1.06) contrast(1.04); }
+
+    /* More Work */
+    .hu-moreWork{
+      margin-top:14px;
+      padding:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      border-radius: var(--r-xl);
+      background:
+        radial-gradient(900px 320px at 15% 25%, rgba(34,197,94,.10), transparent 60%),
+        radial-gradient(900px 320px at 85% 75%, rgba(37,99,235,.10), transparent 62%),
+        var(--card);
+    }
+    .hu-moreWork__txt{ font-weight:1000; font-size:16px; }
+
+    /* Proof */
+    .hu-proofGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    .hu-proof{ padding:14px; border-radius: var(--r-xl); }
+    .hu-proof__i{
+      width:46px; height:46px;
+      border-radius:18px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(37,99,235,.10);
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow1);
+      margin-bottom:10px;
+    }
+    .hu-proof__t{ font-weight:1000; font-size:14px; }
+    .hu-proof__d{ color: var(--muted); font-size:12px; margin-top:6px; line-height:1.75; }
+
+    /* Contact */
+    .hu-contactGrid{ display:grid; grid-template-columns:1fr; gap:12px; margin-top:14px; }
+    .hu-contactCard{ padding:16px; border-radius: var(--r-xl); position:relative; }
+    .hu-contactCard__t{ font-weight:1000; font-size:16px; margin-bottom:10px; }
+
+    .hu-iconRow{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+
+    .hu-locationBox{
+      margin-top:12px;
+      padding:12px;
+      border-radius: var(--r-xl);
+      border:1px solid var(--stroke);
+      background: var(--card2);
+    }
+    .hu-locationTitle{ font-weight:1000; margin-bottom:6px; }
+    .hu-locationText{ color: var(--muted); line-height:1.85; font-size:13px; }
+    .hu-locationRow{
+      margin-top:10px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .hu-hash{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background: var(--card);
+      font-weight:1000;
+      font-size:12px;
+    }
+
+    .hu-copyBox{
+      border-radius: var(--r-xl);
+      border:1px solid var(--stroke);
+      background: var(--card2);
+      padding:12px;
+      line-height:1.9;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+    .hu-copyBox:focus-visible{ outline:none; box-shadow: var(--focus); }
+    .hu-toast{
+      position:absolute;
+      left:16px;
+      bottom:16px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.25);
+      box-shadow: var(--shadow1);
+      font-weight:1000;
+    }
+
+    /* Footer */
+    .hu-footer{
+      border-top:1px solid var(--stroke);
+      background: var(--card2);
+      padding:14px 0;
+    }
+    .hu-footer__inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .hu-footer__brand{ font-weight:1000; }
+    .hu-footer__meta{ color: var(--muted); font-size:12px; margin-top:2px; }
+    .hu-footer__right{ display:flex; gap:10px; flex-wrap:wrap; }
+    .hu-footer__link{
+      color: var(--muted);
+      font-weight:1000;
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: var(--card);
+      border:1px solid var(--stroke);
+      transition: transform .16s ease;
+    }
+    .hu-footer__link:hover{ transform: translateY(-1px); }
+
+    /* Floating FB */
+    .hu-float{
+      position: fixed;
+      right:14px; bottom:14px;
+      z-index:9999;
+      width:58px; height:58px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(34,197,94,.85));
+      box-shadow: var(--shadow2);
+      display:flex; align-items:center; justify-content:center;
+      transition: transform .16s ease, filter .16s ease;
+    }
+    .hu-float:hover{ transform: translateY(-2px); filter: brightness(1.03); }
+    .hu-float__icon img{
+      width:32px; height:32px; border-radius:999px; object-fit:cover;
+    }
+
+    /* ===== Reveal ===== */
+    .hu-reveal{
+      opacity:0;
+      transform: translateY(34px) scale(.985);
+      filter: blur(8px);
+      transition: opacity .8s cubic-bezier(.2,.9,.2,1),
+                  transform .8s cubic-bezier(.2,.9,.2,1),
+                  filter .8s ease;
+      will-change: opacity, transform, filter;
+    }
+    .hu-reveal.is-in{
+      opacity:1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    /* ===== Desktop (optional) ===== */
+    @media (min-width: 720px){
+      #hibaUltra{ max-width:1100px; }
+      .hu-header__inner{
+        display:grid;
+        grid-template-columns: 1.25fr 1fr 1fr;
+        gap:12px;
+        align-items:center;
+      }
+      .hu-nav{ justify-content:center; }
+      .hu-header__actions{ justify-content:flex-end; }
+      .hu-header__actions .hu-btn{ flex: initial; padding:12px 14px; font-size:13px; }
+      .hu-hero__inner{ grid-template-columns: 1.1fr .9fr; }
+      .hu-ctaRow{ flex-direction:row; }
+      .hu-btn--xl{ width:auto; }
+      .hu-servicesGrid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .hu-proofGrid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .hu-contactGrid{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px){
+      .hu-servicesGrid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .hu-proofGrid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      #hibaUltra *{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div id="hibaUltra" class="hu-root" lang="ar" dir="rtl">
+
+  <!-- Topbar -->
+  <div class="hu-topbar" role="note" aria-label="شريط علوي">
+    <div class="hu-container hu-topbar__inner">
+      <div class="hu-topbar__left">
+        <span class="hu-dot" aria-hidden="true"></span>
+        <span class="hu-topbar__text">HIBA GRAPHICS — طباعة وإشهار بجودة عالية • منذ 1989</span>
+      </div>
+
+      <div class="hu-topbar__right">
+        <a class="hu-chip hu-chip--primary"
+           href="https://www.facebook.com/share/16rAAx43dN/"
+           target="_blank" rel="noopener">
+          <span class="hu-ico" aria-hidden="true">
+            <img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt="">
+          </span>
+          مراسلة على فيسبوك
+        </a>
+
+        <button class="hu-themeBtn" id="huThemeBtn" type="button" aria-label="تبديل الوضع (نهاري/ليلي)">
+          <span aria-hidden="true">☀️</span>
+          <span aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="hu-header" role="banner">
+    <div class="hu-container hu-header__inner">
+      <div class="hu-brand" aria-label="العلامة">
+        <a class="hu-brand__logo" href="#huHero" aria-label="العودة للأعلى">
+          <img src="https://i.ibb.co/27Z82RXn/IMG-20260109-132152.jpg" alt="شعار HIBA GRAPHICS" loading="eager">
+        </a>
+
+        <div class="hu-brand__meta">
+          <div class="hu-brand__nameRow">
+            <div class="hu-brand__name">HIBA GRAPHICS</div>
+            <span class="hu-since">منذ 1989</span>
+          </div>
+
+          <div class="hu-brand__tag">
+            🖨️ طباعة • 🎨 سيريغرافي • 📬 أختام • 📢 لوحات • 🚩 لافتات • 🔥 حرارية • 🏅 أوسمة • 🪨 رخام • ⚙️ CNC
+          </div>
+        </div>
+      </div>
+
+      <nav class="hu-nav" aria-label="التنقل">
+        <a class="hu-nav__link" href="#huHero">الرئيسية</a>
+        <a class="hu-nav__link" href="#huServices">خدماتنا</a>
+        <a class="hu-nav__link" href="#huProof">لماذا نحن</a>
+        <a class="hu-nav__link" href="#huContact">تواصل</a>
+      </nav>
+
+      <div class="hu-header__actions" aria-label="روابط سريعة">
+        <a class="hu-btn hu-btn--social"
+           href="https://www.facebook.com/share/16rAAx43dN/"
+           target="_blank" rel="noopener">
+          <span class="hu-ico" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+          Facebook
+        </a>
+
+        <a class="hu-btn hu-btn--social"
+           href="https://www.instagram.com/hiba_graphics47?igsh=azJrajJ5d3hvYWQ4"
+           target="_blank" rel="noopener">
+          <span class="hu-ico" aria-hidden="true"><img src="https://i.ibb.co/5hQ7RxXx/IMG-20260210-194430.jpg" alt=""></span>
+          Instagram
+        </a>
+
+        <a class="hu-btn hu-btn--social"
+           href="https://www.tiktok.com/@hibagraphics?_r=1&_t=ZS-93dqbScmWva"
+           target="_blank" rel="noopener">
+          <span class="hu-ico" aria-hidden="true"><img src="https://i.ibb.co/jkJP4YmN/IMG-20260210-194322.jpg" alt=""></span>
+          TikTok
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="huHero" class="hu-hero" role="region" aria-label="واجهة الصفحة">
+    <div class="hu-container hu-hero__inner">
+
+      <div class="hu-hero__left hu-card hu-card--hero hu-reveal">
+        <h1 class="hu-title">نُحوّل فكرتك إلى <span class="hu-grad">قوة بصرية</span></h1>
+
+        <p class="hu-subtitle">
+          نُحوّل الفكرة إلى منتج بصري قوي: طباعة احترافية، لوحات، سيريغرافي، أختام،
+          نقش على الرخام، وCNC بدقة عالية. تواصل معنا وسنقترح الحل الأنسب بسرعة.
+        </p>
+
+        <div class="hu-ctaRow" aria-label="أزرار">
+          <a class="hu-btn hu-btn--primary hu-btn--xl"
+             href="https://www.facebook.com/share/16rAAx43dN/"
+             target="_blank" rel="noopener">
+            <span class="hu-ico hu-ico--btn" aria-hidden="true">
+              <img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt="">
+            </span>
+            تواصل معنا
+          </a>
+
+          <a class="hu-btn hu-btn--ghost hu-btn--xl" href="#huServices">
+            🛠️ استكشف الخدمات
+          </a>
+        </div>
+
+        <div class="hu-miniSocial" aria-label="أيقونات سريعة">
+          <a class="hu-iconCircle" href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt="Facebook">
+          </a>
+          <a class="hu-iconCircle" href="https://www.instagram.com/hiba_graphics47?igsh=azJrajJ5d3hvYWQ4" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="https://i.ibb.co/5hQ7RxXx/IMG-20260210-194430.jpg" alt="Instagram">
+          </a>
+          <a class="hu-iconCircle" href="https://www.tiktok.com/@hibagraphics?_r=1&_t=ZS-93dqbScmWva" target="_blank" rel="noopener" aria-label="TikTok">
+            <img src="https://i.ibb.co/jkJP4YmN/IMG-20260210-194322.jpg" alt="TikTok">
+          </a>
+        </div>
+      </div>
+
+      <div class="hu-hero__right hu-reveal">
+        <div class="hu-card hu-card--showcase">
+          <div class="hu-showLogo" aria-label="صورة كبيرة">
+            <img src="https://i.ibb.co/jvVgZCbT/1770216000664.jpg" alt="صورة أعمال HIBA GRAPHICS" loading="eager">
+          </div>
+
+          <div class="hu-note"></div>
+
+          <div class="hu-heroLinks" aria-label="روابط">
+            <a class="hu-pill" href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+              <span class="hu-ico" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+              Facebook
+            </a>
+            <a class="hu-pill" href="https://www.instagram.com/hiba_graphics47?igsh=azJrajJ5d3hvYWQ4" target="_blank" rel="noopener">
+              <span class="hu-ico" aria-hidden="true"><img src="https://i.ibb.co/5hQ7RxXx/IMG-20260210-194430.jpg" alt=""></span>
+              Instagram
+            </a>
+            <a class="hu-pill" href="https://www.tiktok.com/@hibagraphics?_r=1&_t=ZS-93dqbScmWva" target="_blank" rel="noopener">
+              <span class="hu-ico" aria-hidden="true"><img src="https://i.ibb.co/jkJP4YmN/IMG-20260210-194322.jpg" alt=""></span>
+              TikTok
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <section class="hu-divider hu-reveal" aria-label="زخرفة">
+    <div class="hu-container">
+      <div class="hu-dividerCard">
+        <div class="hu-dividerGlow" aria-hidden="true"></div>
+        <div class="hu-dividerText">HIBA GRAPHICS — حيث تتحول الأفكار إلى واقع ✨ </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="huServices" class="hu-section hu-reveal" role="region" aria-label="خدماتنا">
+    <div class="hu-container">
+      <div class="hu-head">
+        <h2 class="hu-h2">خدماتنا</h2>
+        <p class="hu-p">اضغط على أي خدمة لعرض صورها</p>
+      </div>
+
+      <div class="hu-servicesGrid" role="list">
+        <article class="hu-service" role="listitem"
+          data-images="https://i.ibb.co/B23JJh1D/1770216180952.jpg,https://i.ibb.co/hxszzS8N/1770216187227.jpg,https://i.ibb.co/tMd88spF/1770216190206.jpg,https://i.ibb.co/yBF2cPN6/1770216201405.jpg">
+          <button class="hu-service__btn" type="button" aria-expanded="false">
+            <div class="hu-service__icon">🖨️</div>
+            <div class="hu-service__txt">
+              <div class="hu-service__t">أشغال الطباعة + اللافتات</div>
+              <div class="hu-service__d">نماذج من الأعمال</div>
+            </div>
+            <div class="hu-service__chev" aria-hidden="true">⌄</div>
+          </button>
+          <div class="hu-panel" hidden>
+            <div class="hu-panel__top">
+              <div class="hu-panel__meta">
+                <div class="hu-panel__title">صور — الطباعة + اللافتات</div>
+                <div class="hu-panel__desc">عرض داخل البطاقة فقط.</div>
+              </div>
+              <a class="hu-btn hu-btn--primary hu-btn--sm"
+                 href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+                <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+                تواصل معنا
+              </a>
+            </div>
+            <div class="hu-gallery"><div class="hu-gallery__grid"></div></div>
+          </div>
+        </article>
+
+        <article class="hu-service" role="listitem"
+          data-images="https://i.ibb.co/b5WMJSS4/images-3.jpg,https://i.ibb.co/v6mt1zgH/images-4.jpg,https://i.ibb.co/sdZxtnF1/images-5.jpg,https://i.ibb.co/SwKgVgvL/images-6.jpg">
+          <button class="hu-service__btn" type="button" aria-expanded="false">
+            <div class="hu-service__icon">🎨</div>
+            <div class="hu-service__txt">
+              <div class="hu-service__t">السيريغرافـي</div>
+              <div class="hu-service__d">طباعة على خامات مختلفة</div>
+            </div>
+            <div class="hu-service__chev" aria-hidden="true">⌄</div>
+          </button>
+          <div class="hu-panel" hidden>
+            <div class="hu-panel__top">
+              <div class="hu-panel__meta">
+                <div class="hu-panel__title">صور — السيريغرافي</div>
+                <div class="hu-panel__desc">عرض داخل الصفحة فقط.</div>
+              </div>
+              <a class="hu-btn hu-btn--primary hu-btn--sm"
+                 href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+                <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+                تواصل معنا
+              </a>
+            </div>
+            <div class="hu-gallery"><div class="hu-gallery__grid"></div></div>
+          </div>
+        </article>
+
+        <article class="hu-service" role="listitem"
+          data-images="https://i.ibb.co/fd9xZz8Z/images-2.jpg,https://i.ibb.co/sJjS2RQ6/FB-IMG-1770216528471.jpg,https://i.ibb.co/svBtDhhN/FB-IMG-1770216553750.jpg,https://i.ibb.co/hx18wYL2/FB-IMG-1770216571954.jpg">
+          <button class="hu-service__btn" type="button" aria-expanded="false">
+            <div class="hu-service__icon">📬</div>
+            <div class="hu-service__txt">
+              <div class="hu-service__t">صناعة الأختام</div>
+              <div class="hu-service__d">أوتوماتيك • توقيعات • مخصص</div>
+            </div>
+            <div class="hu-service__chev" aria-hidden="true">⌄</div>
+          </button>
+          <div class="hu-panel" hidden>
+            <div class="hu-panel__top">
+              <div class="hu-panel__meta">
+                <div class="hu-panel__title">صور — الأختام</div>
+                <div class="hu-panel__desc">عرض داخل الصفحة فقط.</div>
+              </div>
+              <a class="hu-btn hu-btn--primary hu-btn--sm"
+                 href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+                <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+                تواصل معنا
+              </a>
+            </div>
+            <div class="hu-gallery"><div class="hu-gallery__grid"></div></div>
+          </div>
+        </article>
+
+        <article class="hu-service" role="listitem"
+          data-images="https://i.ibb.co/nq0ZBFzG/FB-IMG-1770218122300.jpg,https://i.ibb.co/gLGQy7Vx/FB-IMG-1770218132513.jpg,https://i.ibb.co/3y4DhfLJ/FB-IMG-1770218112129.jpg,https://i.ibb.co/3yHhmbqK/FB-IMG-1770218098953.jpg">
+          <button class="hu-service__btn" type="button" aria-expanded="false">
+            <div class="hu-service__icon">📢</div>
+            <div class="hu-service__txt">
+              <div class="hu-service__t">صناعة اللوحات الإشهارية</div>
+              <div class="hu-service__d">واجهات • PVC • Acrylic</div>
+            </div>
+            <div class="hu-service__chev" aria-hidden="true">⌄</div>
+          </button>
+          <div class="hu-panel" hidden>
+            <div class="hu-panel__top">
+              <div class="hu-panel__meta">
+                <div class="hu-panel__title">صور — اللوحات الإشهارية</div>
+                <div class="hu-panel__desc">عرض داخل الصفحة فقط.</div>
+              </div>
+              <a class="hu-btn hu-btn--primary hu-btn--sm"
+                 href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+                <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+                تواصل معنا
+              </a>
+            </div>
+            <div class="hu-gallery"><div class="hu-gallery__grid"></div></div>
+          </div>
+        </article>
+
+        <article class="hu-service" role="listitem"
+          data-images="https://i.ibb.co/jkTvL9jR/FB-IMG-1770217813866.jpg,https://i.ibb.co/Kcm0prQ1/FB-IMG-1770217808618.jpg,https://i.ibb.co/ycQxW6hv/FB-IMG-1770217802724.jpg">
+          <button class="hu-service__btn" type="button" aria-expanded="false">
+            <div class="hu-service__icon">🔥</div>
+            <div class="hu-service__txt">
+              <div class="hu-service__t">الطباعة الحرارية</div>
+              <div class="hu-service__d">ملابس • هدايا • أكواب</div>
+            </div>
+            <div class="hu-service__chev" aria-hidden="true">⌄</div>
+          </button>
+          <div class="hu-panel" hidden>
+            <div class="hu-panel__top">
+              <div class="hu-panel__meta">
+                <div class="hu-panel__title">صور — الطباعة الحرارية</div>
+                <div class="hu-panel__desc">عرض داخل الصفحة فقط.</div>
+              </div>
+              <a class="hu-btn hu-btn--primary hu-btn--sm"
+                 href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+                <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+                تواصل معنا
+              </a>
+            </div>
+            <div class="hu-gallery"><div class="hu-gallery__grid"></div></div>
+          </div>
+        </article>
+
+        <article class="hu-service" role="listitem"
+          data-images="https://i.ibb.co/MxK0Vtd2/FB-IMG-1770216861438.jpg,https://i.ibb.co/ycJkDNTZ/FB-IMG-1770216839729.jpg,https://i.ibb.co/kgrNd2NL/1770216817647.jpg,https://i.ibb.co/N29J5Vnw/1770216808520.jpg">
+          <button class="hu-service__btn" type="button" aria-expanded="false">
+            <div class="hu-service__icon">🏅</div>
+            <div class="hu-service__txt">
+              <div class="hu-service__t">الأوسمة التكريمية</div>
+              <div class="hu-service__d">دروع • ميداليات • تذكارات</div>
+            </div>
+            <div class="hu-service__chev" aria-hidden="true">⌄</div>
+          </button>
+          <div class="hu-panel" hidden>
+            <div class="hu-panel__top">
+              <div class="hu-panel__meta">
+                <div class="hu-panel__title">صور — الأوسمة التكريمية</div>
+                <div class="hu-panel__desc">عرض داخل الصفحة فقط.</div>
+              </div>
+              <a class="hu-btn hu-btn--primary hu-btn--sm"
+                 href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+                <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+                تواصل معنا
+              </a>
+            </div>
+            <div class="hu-gallery"><div class="hu-gallery__grid"></div></div>
+          </div>
+        </article>
+
+        <article class="hu-service" role="listitem"
+          data-images="https://i.ibb.co/RM9Qghz/1770216800428.jpg,https://i.ibb.co/0RZWs4bC/1770216791200.jpg">
+          <button class="hu-service__btn" type="button" aria-expanded="false">
+            <div class="hu-service__icon">🪨</div>
+            <div class="hu-service__txt">
+              <div class="hu-service__t">النقش على الرخام</div>
+              <div class="hu-service__d">فخامة • وضوح</div>
+            </div>
+            <div class="hu-service__chev" aria-hidden="true">⌄</div>
+          </button>
+          <div class="hu-panel" hidden>
+            <div class="hu-panel__top">
+              <div class="hu-panel__meta">
+                <div class="hu-panel__title">صور — النقش على الرخام</div>
+                <div class="hu-panel__desc">عرض داخل الصفحة فقط.</div>
+              </div>
+              <a class="hu-btn hu-btn--primary hu-btn--sm"
+                 href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+                <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+                تواصل معنا
+              </a>
+            </div>
+            <div class="hu-gallery"><div class="hu-gallery__grid"></div></div>
+          </div>
+        </article>
+
+        <article class="hu-service" role="listitem"
+          data-images="https://i.ibb.co/zV7q6CR0/images-8.jpg,https://i.ibb.co/WpkZJ4M0/Screenshot-2026-02-04-16-01-36-31-a23b203fd3aafc6dcb84e438dda678b6.jpg">
+          <button class="hu-service__btn" type="button" aria-expanded="false">
+            <div class="hu-service__icon">⚙️</div>
+            <div class="hu-service__txt">
+              <div class="hu-service__t">النحت الرقمي (CNC)</div>
+              <div class="hu-service__d">قص • حفر • فوركس • MDF</div>
+            </div>
+            <div class="hu-service__chev" aria-hidden="true">⌄</div>
+          </button>
+          <div class="hu-panel" hidden>
+            <div class="hu-panel__top">
+              <div class="hu-panel__meta">
+                <div class="hu-panel__title">صور — CNC</div>
+                <div class="hu-panel__desc">عرض داخل الصفحة فقط.</div>
+              </div>
+              <a class="hu-btn hu-btn--primary hu-btn--sm"
+                 href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+                <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+                تواصل معنا
+              </a>
+            </div>
+            <div class="hu-gallery"><div class="hu-gallery__grid"></div></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="hu-moreWork hu-card hu-reveal">
+        <div class="hu-moreWork__txt">للمزيد من الأعمال قم بزيارة صفحتنا</div>
+        <a class="hu-btn hu-btn--primary hu-btn--xl"
+           href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener">
+          <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt=""></span>
+          صفحتنا
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section id="huProof" class="hu-section hu-section--alt hu-reveal" role="region" aria-label="لماذا نحن">
+    <div class="hu-container">
+      <div class="hu-head">
+        <h2 class="hu-h2">لماذا نحن؟</h2>
+        <p class="hu-p"></p>
+      </div>
+
+      <div class="hu-proofGrid">
+        <div class="hu-proof hu-card">
+          <div class="hu-proof__i">⚡</div>
+          <div class="hu-proof__t">سرعة في التنفيذ</div>
+          <div class="hu-proof__d">نلتزم بالوقت ونرد عليك بسرعة.</div>
+        </div>
+        <div class="hu-proof hu-card">
+          <div class="hu-proof__i">✨</div>
+          <div class="hu-proof__t">احترافية في العمل</div>
+          <div class="hu-proof__d">دقة وتنظيم يرفعان قيمة مشروعك.</div>
+        </div>
+        <div class="hu-proof hu-card">
+          <div class="hu-proof__i">🏆</div>
+          <div class="hu-proof__t">منذ 1989</div>
+          <div class="hu-proof__d">خبرة طويلة وثقة مبنية على سنوات.</div>
+        </div>
+        <div class="hu-proof hu-card">
+          <div class="hu-proof__i">🤝</div>
+          <div class="hu-proof__t">حسن الاستقبال والتفاهم</div>
+          <div class="hu-proof__d">نسمع لك ونقترح الحل المناسب.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="huContact" class="hu-section hu-section--alt hu-reveal" role="region" aria-label="التواصل">
+    <div class="hu-container">
+      <div class="hu-head">
+        <h2 class="hu-h2">تواصل معنا</h2>
+        <p class="hu-p"></p>
+      </div>
+
+      <div class="hu-contactGrid">
+        <div class="hu-card hu-contactCard">
+          <div class="hu-contactCard__t">روابط التواصل</div>
+
+          <div class="hu-iconRow" aria-label="أيقونات التواصل">
+            <a class="hu-iconCircle hu-iconCircle--big" href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener" aria-label="Facebook">
+              <img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt="Facebook">
+            </a>
+            <a class="hu-iconCircle hu-iconCircle--big" href="https://www.instagram.com/hiba_graphics47?igsh=azJrajJ5d3hvYWQ4" target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="https://i.ibb.co/5hQ7RxXx/IMG-20260210-194430.jpg" alt="Instagram">
+            </a>
+            <a class="hu-iconCircle hu-iconCircle--big" href="https://www.tiktok.com/@hibagraphics?_r=1&_t=ZS-93dqbScmWva" target="_blank" rel="noopener" aria-label="TikTok">
+              <img src="https://i.ibb.co/jkJP4YmN/IMG-20260210-194322.jpg" alt="TikTok">
+            </a>
+            <a class="hu-iconCircle hu-iconCircle--big" href="mailto:hibagraphics47@gmail.com" target="_blank" rel="noopener" aria-label="Gmail">
+              <img src="https://i.ibb.co/9KDphHs/LS20260210194348.png" alt="Gmail">
+            </a>
+            <a class="hu-iconCircle hu-iconCircle--big" href="https://maps.app.goo.gl/TQi9PDT1TTstK37W6" target="_blank" rel="noopener" aria-label="Google Map">
+              <img src="https://i.ibb.co/gZLTb0g7/LS20260210194354.png" alt="Google Map">
+            </a>
+          </div>
+
+          <div class="hu-locationBox">
+            <div class="hu-locationTitle">📍 العنوان</div>
+            <div class="hu-locationText">
+              طريق 5 جويلية – حي يدر – بن يزقن<br>
+              بجوار ثانوية عبد العزيز الثميني – ولاية غرداية
+            </div>
+
+            <div class="hu-locationRow">
+              <span class="hu-hash">#hiba_graphics</span>
+              <a class="hu-btn hu-btn--primary hu-btn--sm"
+                 href="https://maps.app.goo.gl/TQi9PDT1TTstK37W6" target="_blank" rel="noopener">
+                <span class="hu-ico hu-ico--btn" aria-hidden="true"><img src="https://i.ibb.co/gZLTb0g7/LS20260210194354.png" alt=""></span>
+                فتح Google Map
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hu-card hu-contactCard">
+          <div class="hu-contactCard__t">نص جاهز للطلب</div>
+          <div class="hu-copyBox" id="huCopyBox" tabindex="0">
+            السلام عليكم، أريد طلب خدمة: (اذكر الخدمة)<br>
+            المقاس/الكمية: …<br>
+            التصميم جاهز؟ نعم/لا<br>
+            موعد الاستلام المطلوب: …<br>
+            أرسلوا لي عرض سعر من فضلكم.
+          </div>
+          <button class="hu-btn hu-btn--primary hu-btn--sm" type="button" id="huCopyBtn">📋 نسخ النص</button>
+          <div class="hu-toast" id="huToast" role="status" aria-live="polite" hidden>تم النسخ ✅</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="hu-footer" role="contentinfo">
+    <div class="hu-container hu-footer__inner">
+      <div class="hu-footer__left">
+        <div class="hu-footer__brand">HIBA GRAPHICS</div>
+        <div class="hu-footer__meta">© <span id="huYear"></span> — جميع الحقوق محفوظة</div>
+      </div>
+      <div class="hu-footer__right">
+        <a class="hu-footer__link" href="#huHero">الأعلى</a>
+        <a class="hu-footer__link" href="#huServices">الخدمات</a>
+        <a class="hu-footer__link" href="#huContact">تواصل</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Facebook -->
+  <a class="hu-float" href="https://www.facebook.com/share/16rAAx43dN/" target="_blank" rel="noopener" aria-label="Facebook">
+    <span class="hu-float__icon" aria-hidden="true">
+      <img src="https://i.ibb.co/5XdxjNJV/IMG-20260210-194338.png" alt="">
+    </span>
+  </a>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  function ready(fn){
+    if(document.readyState === "loading"){
+      document.addEventListener("DOMContentLoaded", fn, {once:true});
+    }else{
+      fn();
+    }
+  }
+
+  ready(function(){
+    var root = document.getElementById("hibaUltra");
+    if(!root){ return; }
+
+    // Year
+    var yearEl = document.getElementById("huYear");
+    if(yearEl){ yearEl.textContent = String(new Date().getFullYear()); }
+
+    // Theme toggle (LIGHT default) + persistent safe
+    var themeBtn = document.getElementById("huThemeBtn");
+    var storageKey = "hiba_theme";
+
+    function setTheme(isDark){
+      if(isDark){
+        root.classList.add("is-dark");
+        try{ localStorage.setItem(storageKey, "dark"); }catch(e){}
+      }else{
+        root.classList.remove("is-dark");
+        try{ localStorage.setItem(storageKey, "light"); }catch(e){}
+      }
+    }
+
+    // Restore or default light
+    (function(){
+      var saved = null;
+      try{ saved = localStorage.getItem(storageKey); }catch(e){}
+      if(saved === "dark"){ setTheme(true); }
+      else{ setTheme(false); }
+    })();
+
+    if(themeBtn){
+      themeBtn.addEventListener("click", function(){
+        setTheme(!root.classList.contains("is-dark"));
+      });
+    }
+
+    // Smooth scroll
+    var hashLinks = root.querySelectorAll('a[href^="#"]');
+    for(var i=0; i<hashLinks.length; i++){
+      (function(a){
+        a.addEventListener("click", function(e){
+          var href = a.getAttribute("href");
+          if(!href || href.length < 2){ return; }
+          var target = root.querySelector(href) || document.querySelector(href);
+          if(!target){ return; }
+          e.preventDefault();
+          try{ target.scrollIntoView({behavior:"smooth", block:"start"}); }
+          catch(err){ target.scrollIntoView(true); }
+        });
+      })(hashLinks[i]);
+    }
+
+    // Services accordion + gallery render
+    var services = root.querySelectorAll(".hu-service");
+
+    function parseImages(card){
+      var raw = (card.getAttribute("data-images") || "").trim();
+      if(!raw){ return []; }
+      return raw.split(",").map(function(s){ return (s||"").trim(); }).filter(Boolean);
+    }
+
+    function renderGalleryOnce(card){
+      if(card.getAttribute("data-rendered") === "1"){ return; }
+      var grid = card.querySelector(".hu-gallery__grid");
+      if(!grid){ return; }
+
+      var images = parseImages(card);
+      grid.innerHTML = "";
+
+      for(var i=0; i<images.length; i++){
+        var wrap = document.createElement("div");
+        wrap.className = "hu-thumb";
+
+        var img = document.createElement("img");
+        img.src = images[i];
+        img.alt = "صورة خدمة " + (i+1);
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.draggable = false;
+
+        wrap.appendChild(img);
+        grid.appendChild(wrap);
+      }
+
+      card.setAttribute("data-rendered", "1");
+    }
+
+    function closeCard(card){
+      card.classList.remove("is-open");
+      var btn = card.querySelector(".hu-service__btn");
+      var panel = card.querySelector(".hu-panel");
+      if(btn){ btn.setAttribute("aria-expanded","false"); }
+      if(panel){
+        panel.hidden = true;
+        panel.style.maxHeight = "0px";
+      }
+    }
+
+    function openCard(card){
+      card.classList.add("is-open");
+      var btn = card.querySelector(".hu-service__btn");
+      var panel = card.querySelector(".hu-panel");
+      if(btn){ btn.setAttribute("aria-expanded","true"); }
+
+      if(panel){
+        panel.hidden = false;
+        renderGalleryOnce(card);
+
+        panel.style.maxHeight = "0px";
+        panel.offsetHeight; // reflow
+        panel.style.maxHeight = panel.scrollHeight + "px";
+
+        var imgs = panel.querySelectorAll("img");
+        for(var i=0; i<imgs.length; i++){
+          imgs[i].addEventListener("load", function(){
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }, {once:true});
+        }
+      }
+    }
+
+    function closeAll(except){
+      for(var i=0; i<services.length; i++){
+        if(services[i] === except){ continue; }
+        closeCard(services[i]);
+      }
+    }
+
+    for(var i=0; i<services.length; i++){
+      (function(card){
+        var btn = card.querySelector(".hu-service__btn");
+        var panel = card.querySelector(".hu-panel");
+        if(panel){ panel.hidden = true; panel.style.maxHeight = "0px"; }
+        if(!btn){ return; }
+
+        btn.addEventListener("click", function(){
+          var isOpen = card.classList.contains("is-open");
+          if(isOpen){ closeCard(card); return; }
+          closeAll(card);
+          openCard(card);
+          try{ card.scrollIntoView({behavior:"smooth", block:"nearest"}); }catch(e){}
+        });
+      })(services[i]);
+    }
+
+    // Copy request text
+    var copyBtn = document.getElementById("huCopyBtn");
+    var copyBox = document.getElementById("huCopyBox");
+    var toast = document.getElementById("huToast");
+
+    function showToast(){
+      if(!toast){ return; }
+      toast.hidden = false;
+      setTimeout(function(){ toast.hidden = true; }, 1400);
+    }
+
+    function getText(){
+      if(!copyBox){ return ""; }
+      var html = copyBox.innerHTML || "";
+      return html.replace(/<br\s*\/?>/gi, "\n").replace(/<[^>]*>/g, "").trim();
+    }
+
+    function legacyCopy(text){
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly","readonly");
+      ta.style.position="fixed";
+      ta.style.top="-1000px";
+      ta.style.left="-1000px";
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand("copy"); showToast(); }catch(e){}
+      document.body.removeChild(ta);
+    }
+
+    function copyText(text){
+      if(!text){ return; }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(showToast).catch(function(){ legacyCopy(text); });
+        return;
+      }
+      legacyCopy(text);
+    }
+
+    if(copyBtn){
+      copyBtn.addEventListener("click", function(){
+        copyText(getText());
+      });
+    }
+
+    // Reveal on scroll
+    var revealEls = root.querySelectorAll(".hu-reveal");
+    function revealNow(el){ el.classList.add("is-in"); }
+
+    if("IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            revealNow(entry.target);
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.12, rootMargin: "0px 0px -12% 0px"});
+
+      for(var i=0; i<revealEls.length; i++){ io.observe(revealEls[i]); }
+    } else {
+      for(var i=0; i<revealEls.length; i++){ revealNow(revealEls[i]); }
+    }
+  });
+})();
+</script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
